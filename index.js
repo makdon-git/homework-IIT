@@ -21,3 +21,5 @@ app.get('/api/ping', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} (v${VERSION})`);
 });
+// Версия приложения (меняй это для теста!)
+const VERSION = "1.0.1";  # ← Изменили с 1.0.0 на 1.0.1
