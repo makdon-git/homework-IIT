@@ -1,0 +1,20 @@
+﻿version: "3.8"
+
+services:
+  app:
+    image: makdon1967/node-cicd-app:latest
+    container_name: cicd-app
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=30
+      - WATCHTOWER_CLEANUP=true
+      - DOCKER_API_VERSION=1.44
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
